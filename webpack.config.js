@@ -7,7 +7,7 @@ module.exports = {
         api: './src/index.ts'
     },
     target: 'node',
-    devtool: 'source-map',
+    // devtool: 'source-map',
     module: {
         rules: [
             {
