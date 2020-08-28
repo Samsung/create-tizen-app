@@ -1,7 +1,7 @@
 {
     "name": "create-tizen-app",
     "version": "1.0.0",
-    "description": "",
+    "description": "Create the tizen app with your favorite tools",
     "main": "index.js",
     "scripts": {
         "init": "mkdir .test",
@@ -12,8 +12,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.sec.samsung.net:VD-Evangelist/create-tizen-app.git"
+        "url": "https://github.com/Samsung/create-tizen-app.git"
     },
+    "keywords": [
+        "tizen",
+        "tizentv",
+        "create-tizen-app",
+        "tizen-app"
+    ],
     "author": "",
     "license": "ISC",
     "preferGlobal": true,
