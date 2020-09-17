@@ -14,7 +14,7 @@ class TypescriptOrder extends Order {
             npmCommand.addPackages(
                 { 'tizen-tv-webapis': '^1.0.0', 'tizen-common-web': '^1.0.0' },
                 {
-                    // '@types/tizen-tv-webapis': '^1.0.0',
+                    '@types/tizen-tv-webapis': '^1.0.0',
                     typescript: '^3.6.4',
                     '@types/tizen-common-web': '^1.0.0'
                 }
@@ -80,7 +80,8 @@ class TypescriptOrder extends Order {
                             ],
                             devDependencies: [
                                 'typescript',
-                                '@types/tizen-common-web'
+                                '@types/tizen-common-web',
+                                '@types/tizen-tv-webapis'
                             ]
                         }
                     )
