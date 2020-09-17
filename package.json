@@ -1,6 +1,6 @@
 {
     "name": "@tizentv/create-tizen-app",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Create the tizen app with your favorite tools",
     "main": "index.js",
     "scripts": {
@@ -18,7 +18,8 @@
         "tizen",
         "tizentv",
         "create-tizen-app",
-        "tizen-app"
+        "tizen-app",
+        "project wizard"
     ],
     "author": "",
     "license": "ISC",
