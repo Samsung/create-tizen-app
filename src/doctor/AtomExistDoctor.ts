@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { Doctor, DoctorId, ResultType } from './Doctor';
 import { promisify } from 'util';
+import DoctorManager from './DoctorManager';
 
 class AtomExistDoctor extends Doctor {
     constructor() {
@@ -29,11 +30,15 @@ class AtomExistDoctor extends Doctor {
         const promiseExec = promisify(exec);
 
         return new Promise(async (resolve, reject) => {
-            const execResult = await promiseExec('apm --version');
-            if (execResult.stderr) {
+            try {
+                const execResult = await promiseExec('apm --version');
+                if (execResult.stderr) {
+                    resolve(failResult);
+                }
+                resolve(successResult);
+            } catch (e) {
                 resolve(failResult);
             }
-            resolve(successResult);
         });
     }
 }

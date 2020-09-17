@@ -29,11 +29,15 @@ class VSCodeExistDoctor extends Doctor {
         const promiseExec = promisify(exec);
 
         return new Promise(async (resolve, reject) => {
-            const execResult = await promiseExec('code --version');
-            if (execResult.stderr) {
+            try {
+                const execResult = await promiseExec('code --version');
+                if (execResult.stderr) {
+                    resolve(failResult);
+                }
+                resolve(successResult);
+            } catch (e) {
                 resolve(failResult);
             }
-            resolve(successResult);
         });
     }
 }
