@@ -51,7 +51,6 @@ class TypescriptOrder extends Order {
                     `"target": "ES2016"`,
                     `"module": "commonjs"`,
                     `"lib": ["dom", "es6"]`,
-                    `"composite": true`,
                     `"strict": true`,
                     `"noImplicitAny": true`,
                     `"noImplicitReturns": true`,
