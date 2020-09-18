@@ -1,6 +1,5 @@
 import { Doctor } from './Doctor';
 import witsConfigDoctor from './WitsConfigDoctor';
-import witsToolsDoctor from './WitsToolsDoctor';
 import witsExistDoctor from './WitsExistDoctor';
 import atomExistDoctor from './AtomExistDoctor';
 import atomTizenExtensionDoctor from './AtomTizenExtensionDoctor';
@@ -18,7 +17,6 @@ export {
     Doctor,
     witsConfigDoctor,
     witsExistDoctor,
-    witsToolsDoctor,
     atomExistDoctor,
     atomTizenExtensionDoctor,
     vscodeExistDoctor,

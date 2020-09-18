@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { Doctor, DoctorId, ResultType } from './Doctor';
 import { promisify } from 'util';
+import DoctorManager from './DoctorManager';
 
 class AtomTizenExtensionDoctor extends Doctor {
     constructor() {
@@ -31,15 +32,31 @@ class AtomTizenExtensionDoctor extends Doctor {
         const promiseExec = promisify(exec);
 
         return new Promise(async (resolve, reject) => {
-            const execResult = await promiseExec('apm list --installed');
+            try {
+                const execResult = await promiseExec('apm list --installed');
 
-            if (execResult.stderr) {
+                if (execResult.stderr) {
+                    resolve(
+                        DoctorManager.createErrorInfo(
+                            this.category,
+                            'Check if the Tizen extension exists.(apm list --installed)',
+                            new Error(execResult.stderr)
+                        )
+                    );
+                }
+                if (execResult.stdout.toString().includes(tizenExtensionName)) {
+                    resolve(successResult);
+                }
                 resolve(failResult);
+            } catch (e) {
+                resolve(
+                    DoctorManager.createErrorInfo(
+                        this.category,
+                        'Check if the Tizen extension exists.(apm list --installed)',
+                        e
+                    )
+                );
             }
-            if (execResult.stdout.toString().includes(tizenExtensionName)) {
-                resolve(successResult);
-            }
-            resolve(failResult);
         });
     }
 }

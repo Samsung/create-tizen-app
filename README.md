@@ -15,7 +15,9 @@ It also supports the way to use Samsung TV Product API, Tizen common API as a `C
 
 ```sh
 npm install -g @tizentv/create-tizen-app
-create-tizen-app helloworld
+mkdir workspace
+cd workspace
+create-tizen-app yourProjectName
 ```
 
 ## Overview
@@ -27,14 +29,27 @@ You can select `language`, `bundler`, `editor` and even `live reloading tool (WI
 
 ### `create-tizen-app`
 
+Create your tizen application with **yourProjectName**
+
 ```sh
 create-tizen-app yourProjectName
+```
+
+#### init
+
+if you are behind proxy, you can pass **--proxy** option.
+
+```sh
+create-tizen-app init yourProjectName --proxy http://0.0.0.0:8080
 ```
 
 #### Prompters for selecting
 
 1. ProjectName
     - You can put the name of your application.
+        - The character length should be 3~50
+        - The starting character should be an alphabet
+        - The name should be consisted of alphabet and number
 2. Language
     - Select your project's language. `Commonjs` or `Typescript`.
     - If you select the `Commonjs`,
@@ -66,7 +81,15 @@ create-tizen-app yourProjectName
     - If you select the `Atom`, then [atom-tizentv Extension](https://atom.io/packages/atom-tizentv) will be installed.
     - If you select the `None`, then Tizen SDK will be not installed.
 5. WITs (Live Reloading tool)
-    - You can choose to use or not. Please refer [WITs github](https://github.com/Samsung/Wits).
+    - You can choose to use it or not. For details, please refer [WITs github](https://github.com/Samsung/Wits).
+    - If you decided to use WITs, the some prompters for configuration will be asked.
+        - Device Ip address
+          : Target TV IP
+        - Application width (1920 or 1280)
+        - Profile path
+          : Required for packaging. You need to create a certification (Tizen or Samsung) via one of the editors. (VSCode / Atom / Tizen Studio)
+        - Using chrome Devtools for debugging (Y or N)
+          : If you set as "Y", Chrome browser will be opened with inspector
 
 ### `create-tizen-app doctor`
 
@@ -76,6 +99,18 @@ we support a `doctor` subcommand for that.
 If something is missing, `Doctor` will notify you the solution.
 
 ```sh
-cd yourProjectName
+cd workspace/yourProjectName
 create-tizen-app doctor
+```
+
+## Usage after creating project
+
+```sh
+cd workspace/yourProjectName
+npm run build
+
+# optional (If you choosed WITs)
+#    npm run wits-init (For configuration)
+#    npm run wits-start (For packaging, connecting, launching, live reloading)
+npm run wits-start
 ```

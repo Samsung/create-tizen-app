@@ -1,6 +1,7 @@
 import { exec } from 'child_process';
 import { Doctor, DoctorId, ResultType } from './Doctor';
 import { promisify } from 'util';
+import DoctorManager from './DoctorManager';
 
 class VSCodeTizenExtensionDoctor extends Doctor {
     constructor() {
@@ -31,14 +32,30 @@ class VSCodeTizenExtensionDoctor extends Doctor {
         const promiseExec = promisify(exec);
 
         return new Promise(async (resolve, reject) => {
-            const execResult = await promiseExec('code --list-extensions');
-            if (execResult.stderr) {
+            try {
+                const execResult = await promiseExec('code --list-extensions');
+                if (execResult.stderr) {
+                    resolve(
+                        DoctorManager.createErrorInfo(
+                            this.category,
+                            'Check if the Tizen extension exists.(code --list-extensions)',
+                            new Error(execResult.stderr)
+                        )
+                    );
+                }
+                if (execResult.stdout.toString().includes(tizenExtensionName)) {
+                    resolve(successResult);
+                }
                 resolve(failResult);
+            } catch (e) {
+                resolve(
+                    DoctorManager.createErrorInfo(
+                        this.category,
+                        'Check if the Tizen extension exists.(code --list-extensions)',
+                        e
+                    )
+                );
             }
-            if (execResult.stdout.toString().includes(tizenExtensionName)) {
-                resolve(successResult);
-            }
-            resolve(failResult);
         });
     }
 }

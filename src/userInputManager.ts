@@ -51,18 +51,26 @@ const createDoctorConfig = async (cwd: string) => {
 
 const readDoctorConfig: () => Promise<any> = async () => {
     return new Promise((resolve, reject) => {
-        if (doctorConfigData) {
-            resolve(doctorConfigData);
-        }
-        const doctorConfigFile = path.resolve(getCWD(), OUTPUT_FILE);
-        if (existsSync(doctorConfigFile)) {
-            readFile(doctorConfigFile, 'utf-8', (error, data) => {
-                if (error) {
-                    reject(error);
-                }
-                doctorConfigData = JSON.parse(data);
+        try {
+            if (doctorConfigData) {
                 resolve(doctorConfigData);
-            });
+            }
+            const doctorConfigFile = path.resolve(getCWD(), OUTPUT_FILE);
+            if (existsSync(doctorConfigFile)) {
+                readFile(doctorConfigFile, 'utf-8', (error, data) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    let doctorData = JSON.parse(data);
+                    if(!_.has(doctorData, 'project')) {
+                        reject(new Error('.tizen-doctor.json is invalid. Doctor will not run properly.'))
+                    }
+                    doctorConfigData = doctorData.project;
+                    resolve(doctorConfigData);
+                });
+            }
+        } catch (error) {
+            reject(error)
         }
     });
 };

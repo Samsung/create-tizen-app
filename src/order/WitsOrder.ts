@@ -5,7 +5,7 @@ import { OrderType, Order } from './Order';
 import { InputData } from '../defines';
 import { CommandType, CustomCommand, npmCommand } from '../command';
 import { getProxy, getCWD } from '../userInputManager';
-import { witsToolsDoctor, witsExistDoctor, witsConfigDoctor } from '../doctor';
+import { witsExistDoctor, witsConfigDoctor } from '../doctor';
 import DoctorManager from '../doctor/DoctorManager';
 import { logger } from '../Logger';
 
@@ -50,7 +50,6 @@ class WitsOrder extends Order {
 
         try {
             await doctorManager.createPrescription(witsExistDoctor);
-            await doctorManager.createPrescription(witsToolsDoctor);
             await doctorManager.createPrescription(witsConfigDoctor);
             return;
         } catch (e) {
