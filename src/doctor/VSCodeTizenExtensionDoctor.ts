@@ -35,7 +35,13 @@ class VSCodeTizenExtensionDoctor extends Doctor {
             try {
                 const execResult = await promiseExec('code --list-extensions');
                 if (execResult.stderr) {
-                    resolve(failResult);
+                    resolve(
+                        DoctorManager.createErrorInfo(
+                            this.category,
+                            'Check if the Tizen extension exists.(code --list-extensions)',
+                            new Error(execResult.stderr)
+                        )
+                    );
                 }
                 if (execResult.stdout.toString().includes(tizenExtensionName)) {
                     resolve(successResult);
@@ -45,7 +51,7 @@ class VSCodeTizenExtensionDoctor extends Doctor {
                 resolve(
                     DoctorManager.createErrorInfo(
                         this.category,
-                        'Tizen extension is not available.\n       Check if VSCode is ready to use',
+                        'Check if the Tizen extension exists.(code --list-extensions)',
                         e
                     )
                 );

@@ -17,27 +17,29 @@ class AtomExistDoctor extends Doctor {
             scheduler: null
         };
 
-        const failResult = {
-            id: this.doctorId,
-            category: this.category,
-            type: ResultType.fail,
-            message:
-                'ATOM is not available. \n       Please install the editor.(https://atom.io/)',
-            isupdate: false,
-            scheduler: null
-        };
-
         const promiseExec = promisify(exec);
 
         return new Promise(async (resolve, reject) => {
             try {
                 const execResult = await promiseExec('apm --version');
                 if (execResult.stderr) {
-                    resolve(failResult);
+                    resolve(
+                        DoctorManager.createErrorInfo(
+                            this.category,
+                            'Check if the Atom exists.(apm --version)\n       Please check if editor is installed.(https://atom.io/)',
+                            new Error(execResult.stderr)
+                        )
+                    );
                 }
                 resolve(successResult);
             } catch (e) {
-                resolve(failResult);
+                resolve(
+                    DoctorManager.createErrorInfo(
+                        this.category,
+                        'Check if the Atom exists.(apm --version)\n       Please check if editor is installed.(https://atom.io/)',
+                        e
+                    )
+                );
             }
         });
     }

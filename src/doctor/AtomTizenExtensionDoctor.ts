@@ -36,7 +36,13 @@ class AtomTizenExtensionDoctor extends Doctor {
                 const execResult = await promiseExec('apm list --installed');
 
                 if (execResult.stderr) {
-                    resolve(failResult);
+                    resolve(
+                        DoctorManager.createErrorInfo(
+                            this.category,
+                            'Check if the Tizen extension exists.(apm list --installed)',
+                            new Error(execResult.stderr)
+                        )
+                    );
                 }
                 if (execResult.stdout.toString().includes(tizenExtensionName)) {
                     resolve(successResult);
@@ -46,7 +52,7 @@ class AtomTizenExtensionDoctor extends Doctor {
                 resolve(
                     DoctorManager.createErrorInfo(
                         this.category,
-                        'Tizen extension is not available.\n       Check if ATOM is ready to use',
+                        'Check if the Tizen extension exists.(apm list --installed)',
                         e
                     )
                 );

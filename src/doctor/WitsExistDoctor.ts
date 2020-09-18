@@ -55,13 +55,14 @@ class WitsExistDoctor extends Doctor {
                     resolve(PASS);
                 }
             } catch (error) {
-                resolve(
-                    DoctorManager.createErrorInfo(
-                        this.category,
-                        'Check if WITs is ready to use',
-                        error
-                    )
-                );
+                resolve({
+                    id: this.doctorId,
+                    category: this.category,
+                    type: ResultType.fail,
+                    message: `Please check wits is available: ${error.message}`,
+                    isupdate: false,
+                    scheduler: null
+                });
             }
         });
     }
