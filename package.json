@@ -1,7 +1,7 @@
 {
     "name": "@tizentv/create-tizen-app",
     "version": "1.0.3",
-    "description": "Create the tizen app with your favorite tools",
+    "description": "Create a tizen app with your favorite tools",
     "main": "index.js",
     "scripts": {
         "init": "mkdir .test",
