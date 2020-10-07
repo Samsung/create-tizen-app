@@ -114,3 +114,15 @@ npm run build
 #    npm run wits-start (For packaging, connecting, launching, live reloading)
 npm run wits-start
 ```
+## Build to Tizen 2.4 (or below)
+If you build a tizen application to old version(v2.2.1, v2.3, v2.4), then you should change the `target` to `es5` in `tsconfig.json`.
+
+``` json
+// tsconfig.json
+{
+  "complierOpitons": {
+    //"target" : "es6"    // Tizen 3.0 or higher
+    "target" : "es5"      // Tizen 2.4 or below
+  }
+}
+```
