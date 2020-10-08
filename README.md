@@ -1,7 +1,7 @@
 # create-tizen-app
 
 `create-tizen-app` is a wizard tool for helping to configure and make a tizen web application.
-If you are a developer who prefers commonjs style or typescript language, It would be the best solution to craete tizen web application easily.
+If you are a developer who prefers commonjs style or typescript language, It would be the best solution to create tizen web application easily.
 It also supports the way to use Samsung TV Product API, Tizen common API as a `Commonjs style` or `typescript`.
 
 # Associated Projects
