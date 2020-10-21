@@ -1,6 +1,6 @@
 {
     "name": "@tizentv/create-tizen-app",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Create a tizen app with your favorite tools",
     "main": "index.js",
     "scripts": {
@@ -26,7 +26,7 @@
     "preferGlobal": true,
     "private": false,
     "bin": {
-        "create-tizen-app": "./dist/cli.js"
+        "create-tizen-app": "dist/cli.js"
     },
     "devDependencies": {
         "@types/inquirer": "^6.5.0",
