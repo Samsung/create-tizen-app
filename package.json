@@ -4,9 +4,9 @@
     "description": "Create a tizen app with your favorite tools",
     "main": "index.js",
     "scripts": {
-        "init": "mkdir .test",
-        "start": "cd .test && node ../dist/cli.js",
-        "doctor": "cd .test/doctor && node ../../dist/cli.js doctor",
+        "init": "mkdir .local",
+        "start": "cd .local && node ../dist/cli.js",
+        "doctor": "cd .local/doctor && node ../../dist/cli.js doctor",
         "webpack": "webpack --watch --mode=development",
         "release": "webpack --mode=production"
     },
