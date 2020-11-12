@@ -1,7 +1,7 @@
 # create-tizen-app
 
 `create-tizen-app` is a wizard tool for helping to configure and make a tizen web application.
-If you are a developer who prefers commonjs style or typescript language, It would be the best solution to craete tizen web application easily.
+If you are a developer who prefers commonjs style or typescript language, It would be the best solution to create tizen web application easily.
 It also supports the way to use Samsung TV Product API, Tizen common API as a `Commonjs style` or `typescript`.
 
 # Associated Projects
@@ -65,7 +65,7 @@ create-tizen-app init yourProjectName --proxy http://0.0.0.0:8080
         - then [webpack](https://www.npmjs.com/package/webpack),[webpack-cli](https://www.npmjs.com/package/webpack-cli) and [file-loader](https://www.npmjs.com/package/file-loader) will be installed.
         - If you select the `typescript`, [ts-loader](https://www.npmjs.com/package/ts-loader) is installed, .
         - If you select the `commonjs` [babel-loader](https://www.npmjs.com/package/babel-loader), [@babel/core](https://www.npmjs.com/package/@babel/core) and [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) are installed, .
-        - And `webpack.config.js` is created, so cumtomize your bundler as your project.
+        - And `webpack.config.js` is created, so customize your bundler as your project.
     - If you select the `Parcel`,
         - then [parcel](https://github.com/parcel-bundler/parcel) and [parcel-plugin-change-file](https://www.npmjs.com/package/parcel-plugin-change-file) will be installed.
         - It's simple than the `Webpack`.
@@ -114,15 +114,17 @@ npm run build
 #    npm run wits-start (For packaging, connecting, launching, live reloading)
 npm run wits-start
 ```
+
 ## Build to Tizen 2.4 (or below)
+
 If you build a tizen application to old version(v2.2.1, v2.3, v2.4), then you should change the `target` to `es5` in `tsconfig.json`.
 
-``` json
+```jsonc
 // tsconfig.json
 {
-  "complierOpitons": {
-    //"target" : "es6"    // Tizen 3.0 or higher
-    "target" : "es5"      // Tizen 2.4 or below
-  }
+    "complierOpitons": {
+        //"target" : "es6"    // Tizen 3.0 or higher
+        "target": "es5" // Tizen 2.4 or below
+    }
 }
 ```
