@@ -65,7 +65,7 @@ create-tizen-app init yourProjectName --proxy http://0.0.0.0:8080
         - then [webpack](https://www.npmjs.com/package/webpack),[webpack-cli](https://www.npmjs.com/package/webpack-cli) and [file-loader](https://www.npmjs.com/package/file-loader) will be installed.
         - If you select the `typescript`, [ts-loader](https://www.npmjs.com/package/ts-loader) is installed, .
         - If you select the `commonjs` [babel-loader](https://www.npmjs.com/package/babel-loader), [@babel/core](https://www.npmjs.com/package/@babel/core) and [@babel/preset-env](https://www.npmjs.com/package/@babel/preset-env) are installed, .
-        - And `webpack.config.js` is created, so cumtomize your bundler as your project.
+        - And `webpack.config.js` is created, so customize your bundler as your project.
     - If you select the `Parcel`,
         - then [parcel](https://github.com/parcel-bundler/parcel) and [parcel-plugin-change-file](https://www.npmjs.com/package/parcel-plugin-change-file) will be installed.
         - It's simple than the `Webpack`.
