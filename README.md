@@ -7,7 +7,7 @@ It also supports the way to use Samsung TV Product API, Tizen common API as a `C
 # Associated Projects
 
 -   [tizen-tv-webapis](https://github.com/Samsung/tizentv-webapis) is for supporting Samsung TV Product API as commonjs style.
--   [@types/tizen-tv-webapis](#) is definitions for supporting Samsung TV Product API as typescript.
+-   [@types/tizen-tv-webapis](https://www.npmjs.com/package/@types/tizen-tv-webapis) is definitions for supporting Samsung TV Product API as typescript.
 -   [tizen-common-web](https://github.com/Samsung/tizen-common-web) is for supporting Tizen Web Device API as commonjs style.
 -   [@types/tizen-common-web](https://www.npmjs.com/package/@types/tizen-common-web) is definitions for supporting Tizen Web Device API as typescript.
 

@@ -7,7 +7,7 @@
         "init": "mkdir .local",
         "start": "cd .local && node ../dist/cli.js",
         "doctor": "cd .local/doctor && node ../../dist/cli.js doctor",
-        "webpack": "webpack --watch --mode=development",
+        "build": "webpack --watch --mode=development",
         "release": "webpack --mode=production"
     },
     "repository": {
@@ -21,7 +21,21 @@
         "tizen-app",
         "project wizard"
     ],
-    "author": "",
+    "author": {
+        "name":"Sejoong Demian Jang",
+        "email": "sejung.chang@samsung.com"
+    },
+    "contributors": [
+        {
+            "name": "HYOJIN KIM",
+            "email": "hyojins.kim@samsung.com"
+        }, {
+            "name": "WOOSIK PARK",
+            "email": "woosik.park@samsung.com"
+        }, {
+            "name": "DAYOUNG KIM",
+            "email": "da_y.kim@samsung.com"
+        }],
     "license": "ISC",
     "preferGlobal": true,
     "private": false,
