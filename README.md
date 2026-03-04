@@ -1,3 +1,5 @@
+[DEPRECATED]
+
 # create-tizen-app
 
 `create-tizen-app` is a wizard tool for helping to configure and make a tizen web application.
